@@ -1,8 +1,7 @@
 import React from "react";
 import { createBrowserRouter, Route, createRoutesFromElements } from "react-router-dom"
-import Login from "./components/Login";
 import { Navbar, MobileStats } from "./layout";
-import { Orders, Profile, Search, Home } from "./pages"
+import { Orders, Profile, Search, Home, Login } from "./pages"
 
 export const router = createBrowserRouter(
     createRoutesFromElements(

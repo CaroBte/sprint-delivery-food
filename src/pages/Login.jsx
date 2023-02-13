@@ -4,16 +4,20 @@ import { firebase } from '../api'
 import { auth } from "../context"
 
 const Login = () => {
-    /*     const { user } = useContext(auth.authContext)
-        console.log(user); */
-
     const [user, setUser] = useState()
 
     const handleLogin = async () => {
-        /* await firebase.login() */
         const userFir = await firebase.login()
         setUser(userFir)
     }
+
+    /* 
+        const { user } = useContext(auth.authContext)
+        console.log(user);
+    
+        const handleLogin = () => {
+            firebase.login()
+        } */
 
     return (
         <> <div className='d-flex flex-column'>
