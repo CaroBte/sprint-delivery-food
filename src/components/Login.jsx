@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import logo from '../styles/logo.png'
+import { firebase } from '../api'
+import { auth } from "../context"
 
 const Login = () => {
+    /*     const { user } = useContext(auth.authContext)
+        console.log(user); */
+
+    const [user, setUser] = useState()
+
+    const handleLogin = async () => {
+        /* await firebase.login() */
+        const userFir = await firebase.login()
+        setUser(userFir)
+    }
+
     return (
         <> <div className='d-flex flex-column'>
             <div className='d-flex flex-column align-items-center gap-5 mb-5'>
@@ -13,7 +26,7 @@ const Login = () => {
             <div className='login'>
                 <p className='m-0 ms-4'>By clicking the button next you accept</p>
                 <p className='ms-4'>Terms of use</p>
-                <button id='btn-login' className='btn mx-4 btn-yellow'> <strong>Login</strong></button>
+                <button onClick={handleLogin} id='btn-login' className='btn mx-4 btn-yellow'> <strong>Login</strong></button>
             </div>
         </div>
         </>
