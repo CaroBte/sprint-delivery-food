@@ -4,7 +4,7 @@
 $main-yellow: #FFE031
 $white: #fcfcfc
 $light-gray: #f7f7f7
-$gray: #A7A7A7
+$gray: #e3e3e3
 $med-gray: #6C6C6C
 $dark-gray: #414141
 
@@ -13,13 +13,40 @@ body
     background-color: $light-gray
     color: $dark-gray
 
+    /*  NAVBAR */
+
     #navbar
-        position: absolute
+        position: fixed
         bottom: 0
         width: 100%
+        background-color: $gray
 
         .nav-link:focus
             color: $main-yellow
+
+    /* HOME */
+
+    #carouselPromo
+        width: 70%
+
+    .fa-location-dot
+        color: $main-yellow
+        font-size: 2rem
+
+    .text-direction
+        font-size: 0.8rem
+
+    .btns-filter
+        place-content: center
+        gap: 0.5rem
+
+    .btn-filter
+        background-color: $gray
+
+    .btn-filter:focus
+        background-color: $main-yellow
+
+    /* LOGIN */
 
     .login
         position: absolute
