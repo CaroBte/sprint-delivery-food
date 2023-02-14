@@ -1,23 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import logo from '../styles/logo.png'
 import { firebase } from '../api'
 import { auth } from "../context"
 
 const Login = () => {
-    const [user, setUser] = useState()
 
-    const handleLogin = async () => {
-        const userFir = await firebase.login()
-        setUser(userFir)
+    const { user } = useContext(auth.authContext)
+    console.log(user);
+
+    const handleLogin = () => {
+        firebase.login()
     }
-
-    /* 
-        const { user } = useContext(auth.authContext)
-        console.log(user);
-    
-        const handleLogin = () => {
-            firebase.login()
-        } */
 
     return (
         <> <div className='d-flex flex-column'>
