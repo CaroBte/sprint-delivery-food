@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import { auth } from "../context"
+import { Login } from '../pages/'
+
+
 
 
 const Navbar = () => {
+
+    const { user } = useContext(auth.authContext)
+
+    if (!user) return (<Login />)
+
     return (
         <>
             <ul id="navbar" className='navbar-nav d-flex flex-row justify-content-around' >

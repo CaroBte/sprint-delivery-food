@@ -1,14 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import promo1 from '../styles/promo1.png'
 import promo2 from '../styles/promo2.png'
-import { auth } from "../context"
-import Login from './Login'
 
 const Home = () => {
-
-    const { user } = useContext(auth.authContext)
-
-    if (!user) return (<Login />)
 
     return (
         <>
@@ -45,13 +39,15 @@ const Home = () => {
                 <button className="btn btn-filter">🥗</button>
                 <button className="btn btn-filter">🍔</button>
             </div>
-            <div className="restaurant d-flex m-2">
-                <img className='mx-1 rounded-3' src="https://res.cloudinary.com/dif29zscp/image/upload/v1676259696/food-app-delivery-s4/Restaurants/Img_f00p5m.png" alt="" />
-                <div className="restaurant-info">
-                    <h6 className='restaurant-info-title mb-0'>Pardes Restaurant</h6>
-                    <p className='restaurant-info-stars mb-0'>⭐⭐⭐⭐</p>
-                    <p className='restaurant-info-schedule mb-0'>Work time: 9:30 - 23:00</p>
-                    <p className='restaurant-info-price mb-0'>Price: 4$</p>
+            <div className="restaurants d-flex flex-column my-3 mx-2">
+                <div className="restaurant d-flex">
+                    <img className='mx-1 rounded-3' src="https://res.cloudinary.com/dif29zscp/image/upload/v1676259696/food-app-delivery-s4/Restaurants/Img_f00p5m.png" alt="" />
+                    <div className="restaurant-info">
+                        <h6 className='restaurant-info-title mb-0'>Pardes Restaurant</h6>
+                        <p className='restaurant-info-stars mb-0'>⭐⭐⭐⭐</p>
+                        <p className='restaurant-info-schedule mb-0'>Work time: 9:30 - 23:00</p>
+                        <p className='restaurant-info-price mb-0'>Price: 4$</p>
+                    </div>
                 </div>
             </div>
         </>

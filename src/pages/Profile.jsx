@@ -1,10 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 import { authApi } from '../api'
 
 const Profile = () => {
 
+    const navigate = useNavigate()
+
     const handleLogout = () => {
         authApi.logout()
+        navigate("/")
+
     }
     return (
         <div>Profile
