@@ -17,8 +17,8 @@ export const AuthProvider = ({ children }) => {
                 email: _user.email,
                 photo: _user.photoURL
             }
-            newUser.id = _user.uid
-            crudUser.createUser(newUser)
+            const id = _user.uid
+            crudUser.createUser(newUser, id)
         } else {
             setUser(null)
         }
