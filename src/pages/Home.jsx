@@ -1,8 +1,29 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import promo1 from '../styles/promo1.png'
 import promo2 from '../styles/promo2.png'
+import { restaurant } from '../context'
+import RestaurantsList from '../components/RestaurantsList'
 
 const Home = () => {
+
+    const { restaurants, getRestaurants, setRestaurants } = useContext(restaurant.restaurantContext)
+
+    /*     useEffect(() => {
+            if (!restaurants) {
+                getRestaurants()
+            }
+        }, [restaurants]) */
+
+    const filter = (_category) => {
+        if (_category === "all") {
+            getRestaurants()
+        } else {
+            let filterRestaurants = restaurants.filter(({ category }) => {
+                return category === _category
+            })
+            setRestaurants(filterRestaurants)
+        }
+    }
 
     return (
         <>
@@ -31,24 +52,17 @@ const Home = () => {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-            <p className='ms-5 my-2'>Restaurants and coffes</p>
+            <h5 className='ms-3 my-3'>Restaurants and coffes</h5>
             <div className='d-flex flex-row btns-filter'>
-                <button className="btn btn-filter">All</button>
-                <button className="btn btn-filter">🍝</button>
-                <button className="btn btn-filter">🍕</button>
-                <button className="btn btn-filter">🥗</button>
-                <button className="btn btn-filter">🍔</button>
+                <button onClick={() => filter("all")} className="btn btn-filter">All</button>
+                <button onClick={() => filter("pasta")} className="btn btn-filter">🍝</button>
+                <button onClick={() => filter("pizza")} className="btn btn-filter">🍕</button>
+                <button onClick={() => filter("salad")} className="btn btn-filter">🥗</button>
+                <button onClick={() => filter("burguer")} className="btn btn-filter">🍔</button>
+                <button onClick={() => filter("ice-cream")} className="btn btn-filter">🍨</button>
             </div>
-            <div className="restaurants d-flex flex-column my-3 mx-2">
-                <div className="restaurant d-flex">
-                    <img className='mx-1 rounded-3' src="https://res.cloudinary.com/dif29zscp/image/upload/v1676259696/food-app-delivery-s4/Restaurants/Img_f00p5m.png" alt="" />
-                    <div className="restaurant-info">
-                        <h6 className='restaurant-info-title mb-0'>Pardes Restaurant</h6>
-                        <p className='restaurant-info-stars mb-0'>⭐⭐⭐⭐</p>
-                        <p className='restaurant-info-schedule mb-0'>Work time: 9:30 - 23:00</p>
-                        <p className='restaurant-info-price mb-0'>Price: 4$</p>
-                    </div>
-                </div>
+            <div className="d-flex flex-column mb-5 mt-2 gap-1 mx-2">
+                <RestaurantsList list={restaurants} />
             </div>
         </>
     )
