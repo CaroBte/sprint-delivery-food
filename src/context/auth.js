@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
 
     onAuthStateChanged(authApi.auth, (_user) => {
         if (_user) {
-            console.log(_user);
             setUser(_user)
             const newUser = {
                 name: _user.displayName,
@@ -18,7 +17,7 @@ export const AuthProvider = ({ children }) => {
                 photo: _user.photoURL
             }
             const id = _user.uid
-            crudUser.createUser(newUser, id)
+            crudUser.sendUser(newUser, id)
         } else {
             setUser(null)
         }
