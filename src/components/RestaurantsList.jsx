@@ -8,7 +8,7 @@ const RestaurantsList = ({ list }) => {
                 list && list.map((r) => {
                     let { name, img, stars, time } = r
                     return (
-                        <div className="restaurant d-flex my-1" >
+                        <div key={name} className="restaurant d-flex my-1" >
                             <img className='mx-1 rounded-3 img-restaurant-card' src={img} alt={name} />
                             <div className="d-flex flex-column justify-content-center 
                             gap-1
