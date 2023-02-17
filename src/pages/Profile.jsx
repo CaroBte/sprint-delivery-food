@@ -18,7 +18,6 @@ const Profile = () => {
                 <img className='img-profile' src={user.photoURL} alt={user.displayName} />
                 <p className='mt-2'>{user.displayName}</p>
             </div>
-
             <div className="profile-items d-flex flex-row align-items-center py-2">
                 <i className="fa-regular fa-user"></i>
                 <p className='text-profile-items'>Account edit</p>
@@ -33,7 +32,6 @@ const Profile = () => {
                 <i className="fa-solid fa-globe"></i>
                 <p className='text-profile-items'>Languaje</p>
                 <span className='eng'>ENG</span>
-
             </div>
             <div className="profile-items d-flex flex-row align-items-center py-2">
                 <i className="fa-solid fa-location-dot"></i>
@@ -50,9 +48,8 @@ const Profile = () => {
                 <p className='text-profile-items'>Support</p>
                 <i className="fa-solid fa-angle-right"></i>
             </div>
-
-
-            <button onClick={handleLogout} className='btn btn-danger w-75 ms-5'>Logout</button>
+            <button className='btn btn-danger w-75 ms-5'
+                onClick={handleLogout}>Logout</button>
         </>
 
     )

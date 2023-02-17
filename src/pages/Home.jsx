@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import promo1 from '../styles/promo1.png'
 import promo2 from '../styles/promo2.png'
 import { restaurant } from '../context'
@@ -6,29 +6,33 @@ import RestaurantsList from '../components/RestaurantsList'
 
 const Home = () => {
 
-    const { restaurants, getRestaurants, setRestaurants } = useContext(restaurant.restaurantContext)
+    const { restaurants, getRestaurants } = useContext(restaurant.restaurantContext)
 
-    /*     useEffect(() => {
-            if (!restaurants) {
-                getRestaurants()
-            }
-        }, [restaurants]) */
+    const [restLocal, setRestLocal] = useState()
+
+    useEffect(() => {
+        if (!restaurants) {
+            getRestaurants()
+        }
+        setRestLocal(restaurants)
+    }, [restaurants])
 
     const filter = (_category) => {
+
         if (_category === "all") {
-            getRestaurants()
+            setRestLocal(restaurants)
         } else {
             let filterRestaurants = restaurants.filter(({ category }) => {
-                return category === _category
+                return category.includes(_category)
             })
-            setRestaurants(filterRestaurants)
+            setRestLocal(filterRestaurants)
         }
     }
 
     return (
         <>
             <div className='ms-5 my-2 d-flex'>
-                <i className="fa-solid fa-location-dot"></i>
+                <i id='location' className="fa-solid fa-location-dot"></i>
                 <div>
                     <p className='m-0 ms-2 text-direction'>DELIVER TO</p>
                     <p className='m-0 ms-2 text-direction'>P.SHERMAN CALLE WALLABY 42 SIDNEY</p>
@@ -62,7 +66,7 @@ const Home = () => {
                 <button onClick={() => filter("ice-cream")} className="btn btn-filter">🍨</button>
             </div>
             <div className="d-flex flex-column mb-5 mt-2 gap-1 mx-2">
-                <RestaurantsList list={restaurants} />
+                <RestaurantsList list={restLocal} />
             </div>
         </>
     )
