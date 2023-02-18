@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { crudRestaurant } from "../api";
+import { crudRestaurant, crudDishes } from "../api";
 
 
 export const restaurantContext = createContext()
@@ -7,15 +7,37 @@ export const restaurantContext = createContext()
 export const RestaurantProvider = ({ children }) => {
 
     const [restaurants, setRestaurants] = useState(null)
+    const [dishes, setDishes] = useState(null)
+    const [actRestaurant, setActRestaurant] = useState(null)
 
+    // Get all restaurants
     const getRestaurants = async () => {
         setRestaurants(null)
-        let res = await crudRestaurant.getRestaurant()
+        let res = await crudRestaurant.getRestaurants()
         setRestaurants(res.restaurants)
     }
 
+    //Get a restaurant by ID
+    const getRestaurant = async (_id) => {
+        let res = await crudRestaurant.getRestaurant(_id)
+        setActRestaurant(res.restaurant)
+    }
+
+    // Get all dishes
+    const getDishes = async (_rid) => {
+        let res = await crudDishes.getDishes(_rid)
+        setDishes(res.dishes)
+    }
+
+    //Variables for the context
+    const variables = {
+        restaurants, getRestaurants, setRestaurants,
+        actRestaurant, getRestaurant, setActRestaurant,
+        dishes, getDishes
+    }
+
     return (
-        <restaurantContext.Provider value={{ restaurants, getRestaurants, setRestaurants }}>
+        <restaurantContext.Provider value={variables}>
             {children}
         </restaurantContext.Provider>
     )

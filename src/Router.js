@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, Route, createRoutesFromElements } from "react-router-dom"
 import { Navbar, MobileStats } from "./layout";
-import { Orders, Profile, Search, Home, Login } from "./pages"
+import { Orders, Profile, Search, Home, RestaurantDetail } from "./pages"
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -13,6 +13,7 @@ export const router = createBrowserRouter(
                     <Route path="/search" element={<Search />} />
                     <Route path="/profile" element={<Profile />} />
                 </Route >
+                <Route path="/restaurant/:id/" element={<RestaurantDetail />} />
             </Route>
         </>
     )

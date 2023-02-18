@@ -16,7 +16,7 @@ const Profile = () => {
         <>
             <div className='align-items-center d-flex flex-column'>
                 <img className='img-profile' src={user.photoURL} alt={user.displayName} />
-                <p className='mt-2'>{user.displayName}</p>
+                <h5 className='mt-2'>{user.displayName}</h5>
             </div>
             <div className="profile-items d-flex flex-row align-items-center py-2">
                 <i className="fa-regular fa-user"></i>
@@ -48,7 +48,7 @@ const Profile = () => {
                 <p className='text-profile-items'>Support</p>
                 <i className="fa-solid fa-angle-right"></i>
             </div>
-            <button className='btn btn-danger w-75 ms-5'
+            <button className='btn btn-yellow w-75 ms-5'
                 onClick={handleLogout}>Logout</button>
         </>
 
