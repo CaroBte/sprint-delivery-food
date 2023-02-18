@@ -1,10 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { auth } from "../context"
-import { Login } from '../pages/'
-
-
-
+import { Login } from '../components/'
 
 const Navbar = () => {
 

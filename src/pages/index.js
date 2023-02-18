@@ -2,6 +2,6 @@ import Home from "./Home";
 import Orders from "./Orders";
 import Search from "./Search";
 import Profile from "./Profile";
-import Login from "../components/Login"
+import RestaurantDetail from "./RestaurantDetail";
 
-export { Home, Orders, Search, Profile, Login } 
+export { Home, Orders, Search, Profile, RestaurantDetail } 

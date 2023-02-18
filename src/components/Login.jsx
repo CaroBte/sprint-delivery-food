@@ -5,9 +5,6 @@ import { auth } from "../context"
 
 const Login = () => {
 
-    const { user } = useContext(auth.authContext)
-    console.log(user);
-
     const handleLogin = () => {
         authApi.login()
     }
