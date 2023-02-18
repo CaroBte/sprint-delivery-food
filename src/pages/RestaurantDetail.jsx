@@ -34,7 +34,11 @@ const RestaurantDetail = () => {
 
                     </>
                 ) : (
-                    <h1>e</h1>
+                    <div className="d-flex justify-content-center">
+                        <div className="spinner-border text-warning mt-5" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
                 )
             }
 

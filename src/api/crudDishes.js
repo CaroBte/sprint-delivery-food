@@ -16,7 +16,5 @@ export const getDishes = async (_rid) => {
         dishes.push(dish)
     })
 
-    console.log(dishes, "API");
-
     return { dishes }
 }

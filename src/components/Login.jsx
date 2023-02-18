@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import logo from '../styles/logo.png'
 import { authApi } from '../api'
-import { auth } from "../context"
 
 const Login = () => {
 

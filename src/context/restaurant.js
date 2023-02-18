@@ -23,7 +23,7 @@ export const RestaurantProvider = ({ children }) => {
         setActRestaurant(res.restaurant)
     }
 
-    // Get all dishes
+    // Get all dishes from one restaurant
     const getDishes = async (_rid) => {
         let res = await crudDishes.getDishes(_rid)
         setDishes(res.dishes)
@@ -33,7 +33,7 @@ export const RestaurantProvider = ({ children }) => {
     const variables = {
         restaurants, getRestaurants, setRestaurants,
         actRestaurant, getRestaurant, setActRestaurant,
-        dishes, getDishes
+        dishes, getDishes, setDishes
     }
 
     return (
