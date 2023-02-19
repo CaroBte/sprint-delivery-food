@@ -10,6 +10,7 @@ export const RestaurantProvider = ({ children }) => {
     const [dishes, setDishes] = useState(null)
     const [actRestaurant, setActRestaurant] = useState(null)
     const [actDish, setActDish] = useState(null)
+    const [allDishes, setAllDishes] = useState([])
 
     // Get all restaurants
     const getRestaurants = async () => {
@@ -36,6 +37,16 @@ export const RestaurantProvider = ({ children }) => {
         setActDish(res.dish)
     }
 
+    //Get All Dishes from all restaurants
+    const getAllDishes = async () => {
+        await getRestaurants()
+        restaurants.forEach(async (r) => {
+            let rid = r.name
+            let res = await crudDishes.getDishes(rid)
+            setAllDishes(allDishes => [...allDishes, res.dishes])
+        })
+    }
+
 
     //Variables for the context
     const variables = {
@@ -43,6 +54,7 @@ export const RestaurantProvider = ({ children }) => {
         actRestaurant, getRestaurant, setActRestaurant,
         dishes, getDishes, setDishes,
         actDish, getDish, setActDish,
+        allDishes, getAllDishes
     }
 
     return (

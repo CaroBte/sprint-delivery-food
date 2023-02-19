@@ -11,18 +11,13 @@ const DishDetail = () => {
     const { idR, idD } = useParams()
     const LINK = `/restaurant/${idR}/`
 
-
     useEffect(() => {
 
         if (idD) {
             setActDish(null)
             getDish(idR, idD)
         }
-
     }, [idD])
-
-    { console.log(actDish) }
-
 
     return (
 
@@ -43,12 +38,8 @@ const DishDetail = () => {
                             </div>
                         </div>
                     )
-
             }
-
-
-
-        </ >
+        </>
     )
 }
 
