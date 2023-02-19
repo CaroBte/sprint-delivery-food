@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { SearchEmpty } from "../components"
 
 const FilteredList = ({ list }) => {
 
     const navigate = useNavigate()
-
 
     if (list && list.length === 0) return (
         <SearchEmpty />
@@ -17,7 +16,6 @@ const FilteredList = ({ list }) => {
                 list && list.map((r) => {
                     let { name, category, price, img, restaurant } = r
                     const onClick = () => {
-                        navigate("/")
                         navigate(`restaurant/${restaurant}/${name}`)
                     }
                     return (
@@ -31,10 +29,8 @@ const FilteredList = ({ list }) => {
                                 </div>
                             </div>
                         </div>
-
                     )
-                }
-                )
+                })
             }
         </>
     )

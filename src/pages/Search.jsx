@@ -11,7 +11,7 @@ const Search = () => {
     const [filtered, setFiltered] = useState()
 
     const handleSubmit = (event) => {
-        const searched = event.target.value
+        const searched = event.target.value.toLowerCase()
 
         for (let i = 0; i < allDishesLocal.length; i++) {
             let restaurantDishes = allDishesLocal[i]
@@ -22,7 +22,6 @@ const Search = () => {
                 }
             }
         }
-
         handleFilter(searched, tempDishes)
     }
 
@@ -45,12 +44,13 @@ const Search = () => {
     return (
 
         <>
-            <div className='search-bar position-relative mx-3 my-4'>
-                <i className='fa-solid fa-magnifying-glass position-absolute search-icon ps-2'></i>
-                <input onChange={event => handleSubmit(event)} className='form-control rounded-3 ps-5' type="text" placeholder='Search for a dish' />
+            <div className='mb-5'>
+                <div className='search-bar position-relative mx-3 my-4'>
+                    <i className='fa-solid fa-magnifying-glass position-absolute search-icon ps-2'></i>
+                    <input onChange={event => handleSubmit(event)} className='form-control rounded-3 ps-5' type="text" placeholder='Search for a dish' />
+                </div>
+                <FilteredList list={filtered} />
             </div>
-            <FilteredList list={filtered} />
-
         </>
     )
 }

@@ -47,7 +47,6 @@ export const RestaurantProvider = ({ children }) => {
         })
     }
 
-
     //Variables for the context
     const variables = {
         restaurants, getRestaurants, setRestaurants,
