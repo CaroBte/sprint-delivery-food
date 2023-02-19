@@ -31,6 +31,7 @@ const Home = () => {
 
     return (
         <>
+
             <div className='ms-5 my-2 d-flex'>
                 <i id='location' className="fa-solid fa-location-dot"></i>
                 <div>
@@ -65,9 +66,19 @@ const Home = () => {
                 <button onClick={() => filter("burguer")} className="btn btn-filter">🍔</button>
                 <button onClick={() => filter("ice-cream")} className="btn btn-filter">🍨</button>
             </div>
-            <div className="d-flex flex-column mb-5 mt-2 gap-1 mx-2">
-                <RestaurantsList list={restLocal} />
-            </div>
+
+            {restLocal ? (
+                <>
+                    <div className="d-flex flex-column mb-5 mt-2 gap-1 mx-2">
+                        <RestaurantsList list={restLocal} />
+                    </div>
+                </>
+            ) :
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border text-warning mt-5" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                </div>}
         </>
     )
 }

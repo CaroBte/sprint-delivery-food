@@ -6,18 +6,18 @@ import { DishesList, InfoRestaurant } from '../components/'
 
 const RestaurantDetail = () => {
 
-    const { id } = useParams()
+    const { idR } = useParams()
 
     const { actRestaurant, getRestaurant, setActRestaurant,
         dishes, getDishes } = useContext(restaurant.restaurantContext)
 
     useEffect(() => {
         setActRestaurant(null)
-        if (id) {
-            getRestaurant(id)
-            getDishes(id)
+        if (idR) {
+            getRestaurant(idR)
+            getDishes(idR)
         }
-    }, [id])
+    }, [idR])
 
 
     return (
@@ -31,7 +31,6 @@ const RestaurantDetail = () => {
                         </Link>
                         <InfoRestaurant actRestaurant={actRestaurant} />
                         <DishesList list={dishes} />
-
                     </>
                 ) : (
                     <div className="d-flex justify-content-center">

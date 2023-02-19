@@ -1,8 +1,10 @@
-import { collection, setDoc, doc, getDocs } from "firebase/firestore";
+import { collection, setDoc, doc, getDocs, getDoc } from "firebase/firestore";
 
 import { db } from "./firebase"
 
 // CRUD 
+
+//Get all dishes from a restaurant 
 
 export const getDishes = async (_rid) => {
     const dishesCollection = collection(db, `restaurants/${_rid}/dishes`)
@@ -17,4 +19,17 @@ export const getDishes = async (_rid) => {
     })
 
     return { dishes }
+}
+
+//Get an especific dish from the restaurant
+
+export const getDish = async (_idR, _idD) => {
+
+    const dishesCollection = collection(db, `restaurants/${_idR}/dishes`)
+
+    const dishData = await getDoc(doc(dishesCollection, _idD))
+    const dish = dishData.data()
+    dish.id = dishData.id
+
+    return { dish: dish }
 }
