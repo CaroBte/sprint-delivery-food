@@ -23,15 +23,15 @@ const RestaurantDetail = () => {
     return (
 
         <>
-            {
-                actRestaurant ? (
-                    <>
-                        <Link to={"/"}>
-                            <i className="fa-solid fa-chevron-left ms-3"></i>
-                        </Link>
-                        <InfoRestaurant actRestaurant={actRestaurant} />
-                        <DishesList list={dishes} />
-                    </>
+            {<>
+                <Link to={"/"}>
+                    <i className="fa-solid fa-chevron-left ms-3"></i>
+                </Link>
+                {actRestaurant ? (<>
+
+
+                    <InfoRestaurant actRestaurant={actRestaurant} />
+                    <DishesList list={dishes} /></>
                 ) : (
                     <div className="d-flex justify-content-center">
                         <div className="spinner-border text-warning mt-5" role="status">
@@ -39,8 +39,9 @@ const RestaurantDetail = () => {
                         </div>
                     </div>
                 )
-            }
+                }
 
+            </>}
         </>
     )
 

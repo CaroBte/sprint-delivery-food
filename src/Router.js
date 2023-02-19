@@ -11,6 +11,7 @@ export const router = createBrowserRouter(
                     <Route path="/" element={<Home />} />
                     <Route path="/orders" element={<Orders />} />
                     <Route path="/search" element={<Search />} />
+                    <Route path="/search/restaurant/:idR/:idD" element={<DishDetail />} />
                     <Route path="/profile" element={<Profile />} />
                 </Route >
                 <Route path="/restaurant/:idR/" element={<RestaurantDetail />} />
