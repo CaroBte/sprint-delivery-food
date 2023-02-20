@@ -12,7 +12,7 @@ const RestaurantsList = ({ list }) => {
                     let { name, img, stars, time } = r
                     return (
                         <Link to={`${LINK}${name}`} key={name}>
-                            <div className="restaurant d-flex my-1" >
+                            <div className="restaurant d-flex my-1 py-2" >
                                 <img className='mx-1 rounded-3 img-restaurant-card' src={img} alt={name} />
                                 <div className="d-flex flex-column justify-content-center 
                             gap-1

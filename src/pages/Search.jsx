@@ -40,9 +40,7 @@ const Search = () => {
         setAllDishesLocal(allDishes)
     }, [allDishes])
 
-
     return (
-
         <>
             <div className='mb-5'>
                 <div className='search-bar position-relative mx-3 my-4'>

@@ -1,24 +1,32 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 import { authApi } from '../api'
 import { auth } from '../context'
+import { UserForm } from '../components'
 
 const Profile = () => {
 
     const navigate = useNavigate()
     const { user } = useContext(auth.authContext)
+    console.log(user)
 
     const handleLogout = () => {
         authApi.logout()
         navigate("/")
     }
+
+    const edit = () => {
+        navigate(`/${user.uid}`)
+    }
+
     return (
         <>
             <div className='align-items-center d-flex flex-column'>
                 <img className='img-profile' src={user.photoURL} alt={user.displayName} />
                 <h5 className='mt-2'>{user.displayName}</h5>
             </div>
-            <div className="profile-items d-flex flex-row align-items-center py-2">
+            <div onClick={edit} className="profile-items d-flex flex-row align-items-center py-2">
                 <i className="fa-regular fa-user"></i>
                 <p className='text-profile-items'>Account edit</p>
                 <i className="fa-solid fa-angle-right"></i>

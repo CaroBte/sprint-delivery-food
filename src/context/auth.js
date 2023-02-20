@@ -12,19 +12,30 @@ export const AuthProvider = ({ children }) => {
         if (_user) {
             setUser(_user)
             const newUser = {
-                name: _user.displayName,
+                displayName: _user.displayName,
                 email: _user.email,
-                photo: _user.photoURL
+                photoURL: _user.photoURL,
+                uid: _user.uid
             }
-            const id = _user.uid
-            crudUser.sendUser(newUser, id)
+            const uid = _user.uid
+            crudUser.sendUser(newUser, uid)
         } else {
             setUser(null)
         }
     })
 
+    /*     const getUserDetails = async (_id) => {
+            let userInfo = await crudUser.getUserDetails(_id)
+            setUser(userInfo) 
+        } */ // no hace setUser 
+
+    const editUser = async (_user, _uid) => {
+        await crudUser.sendUser(_user, _uid)
+        /*     await getUserDetails(_uid) */
+    }
+
     return (
-        <authContext.Provider value={{ user }}>
+        <authContext.Provider value={{ user, setUser, editUser }}>
             {children}
         </authContext.Provider>
     )
