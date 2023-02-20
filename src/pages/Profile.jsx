@@ -9,7 +9,6 @@ const Profile = () => {
 
     const navigate = useNavigate()
     const { user } = useContext(auth.authContext)
-    console.log(user)
 
     const handleLogout = () => {
         authApi.logout()

@@ -24,14 +24,14 @@ export const AuthProvider = ({ children }) => {
         }
     })
 
-    /*     const getUserDetails = async (_id) => {
-            let userInfo = await crudUser.getUserDetails(_id)
-            setUser(userInfo) 
-        } */ // no hace setUser 
+    /* const getUserDetails = async (_id) => {
+        let userInfo = await crudUser.getUserDetails(_id)
+        setUser(userInfo)
+    } */
 
     const editUser = async (_user, _uid) => {
         await crudUser.sendUser(_user, _uid)
-        /*     await getUserDetails(_uid) */
+        /*  await getUserDetails(_uid) */
     }
 
     return (
