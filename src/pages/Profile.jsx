@@ -1,9 +1,7 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router'
-import { Link } from 'react-router-dom'
 import { authApi } from '../api'
 import { auth } from '../context'
-import { UserForm } from '../components'
 
 const Profile = () => {
 

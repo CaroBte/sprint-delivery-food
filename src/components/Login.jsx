@@ -1,12 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import logo from '../styles/logo.png'
 import { authApi } from '../api'
+import { restaurant } from '../context'
 
 const Login = () => {
+
+    const { setOrder } = useContext(restaurant.restaurantContext)
 
     const handleLogin = () => {
         authApi.login()
     }
+
+    useEffect(() => {
+        setOrder([])
+    }, [])
 
     return (
         <>

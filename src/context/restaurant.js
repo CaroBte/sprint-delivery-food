@@ -11,6 +11,7 @@ export const RestaurantProvider = ({ children }) => {
     const [actRestaurant, setActRestaurant] = useState(null)
     const [actDish, setActDish] = useState(null)
     const [allDishes, setAllDishes] = useState([])
+    const [order, setOrder] = useState([])
 
     // Get all restaurants
     const getRestaurants = async () => {
@@ -53,7 +54,8 @@ export const RestaurantProvider = ({ children }) => {
         actRestaurant, getRestaurant, setActRestaurant,
         dishes, getDishes, setDishes,
         actDish, getDish, setActDish,
-        allDishes, getAllDishes
+        allDishes, getAllDishes,
+        order, setOrder
     }
 
     return (
