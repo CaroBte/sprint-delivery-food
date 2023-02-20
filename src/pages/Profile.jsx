@@ -53,7 +53,7 @@ const Profile = () => {
                 <p className='text-profile-items'>Support</p>
                 <i className="fa-solid fa-angle-right"></i>
             </div>
-            <button className='btn btn-yellow w-75 ms-5'
+            <button className='btn btn-yellow w-75 ms-5 mt-4'
                 onClick={handleLogout}>Logout</button>
         </>
 

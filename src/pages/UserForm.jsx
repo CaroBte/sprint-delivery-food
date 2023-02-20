@@ -34,7 +34,7 @@ const UserForm = () => {
                     <input className='form-control mb-2' type="text" name="displayName"  {...register("displayName")} />
                     <input className='form-control mb-2' type="text" name="photoURL"  {...register("photoURL")} />
                     <input disabled className='form-control mb-2' type="text" name="email" {...register("email")} />
-                    <button type="submit" className="btn btn-info w-50 mt-4">Send</button>
+                    <button type="submit" className="btn btn-info w-50 mt-3">Send</button>
                 </form>
             </div>
         </>
